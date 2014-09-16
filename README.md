@@ -1,0 +1,4 @@
+myvim
+=====
+
+my vim environment
