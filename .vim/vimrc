@@ -65,7 +65,8 @@ set ts=4
 set expandtab
 
 "colorscheme elflord
-colorscheme evening
+"colorscheme evening
+colorscheme darkblue
 
 set ic
 set hlsearch
@@ -83,10 +84,10 @@ autocmd FileType python map <f5> <Esc>:!python % <CR>
 autocmd FileType python map <f6> <Esc>:!python ./bin/web-server.py 8088<CR>
 
 " for php check syntax
-autocmd FileType php setlocal makeprg=php\ -l\ % "\ |\ grep\ 'PHP Parse error'
+"autocmd FileType php setlocal makeprg=php\ -l\ % "\ |\ grep\ 'PHP Parse error'
 "autocmd FileType php setlocal shellpipe=>
 "autocmd FileType php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-autocmd BufWritePost *.php,*.phps :make
+"autocmd BufWritePost *.php,*.phps :make
 
 "set spell
 
@@ -102,9 +103,21 @@ let NERDTreeIgnore = ['\.pyc$']
 "let g:Powerline_symbols = 'fancy'
 
 set encoding=utf-8
+set fileencodings=utf-8,gb18030,utf-16,big5
 set fillchars+=stl:\ ,stlnc:\
 set laststatus=2
 set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/
 "set -g default-terminal "screen-256color"
 set t_Co=256
 let g:Powerline_symbols = 'fancy'
+
+let g:syntastic_python_checkers=['pyflakes']
+
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+
+" no compatible for vi
+set nocompatible
+" enable backsplace
+set backspace=indent,eol,start
+
